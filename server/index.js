@@ -7,11 +7,12 @@ import postRoutes from './routes/posts.js'
 
 const app = express(); //runs as a function and can now run all differnet methods on this app instance
 
-app.use('/posts', postRoutes); //every route inside of the postRoutes will start with posts (localhost:5000/posts) 
 
 app.use(bodyParser.json({limit: "30mb", extended: true})); //limits sizes of images
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true})); //properly send requests
 app.use(cors()); //can now call cors with a function
+
+app.use('/posts', postRoutes); //every route inside of the postRoutes will start with posts (localhost:5000/posts) 
 
 
 const CONNECTION_URL = 'mongodb+srv://churchjg:Rosslyn503$@cluster0.djqnm.mongodb.net/<dbname>?retryWrites=true&w=majority' //connects database to MongoDB cloud
