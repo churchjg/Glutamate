@@ -1,4 +1,4 @@
-const express = require("express");
+import express from 'express';
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors';
@@ -26,6 +26,13 @@ app.set("port", process.env.PORT || 5000);
 app.listen(app.get("port"), () => {
     console.log(`Check Port: ${app.get('port')}`)
 })
+
+let mongoURI = "";
+if(process.env.NODE_ENV === "production"){
+    mongoURI = process.env.DB_URL;
+}else{
+    mongoURI = "mongodb://localhost/5000"
+}
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true}) //function to accept connection and object parameters
     .then(() => app.listen(PORT, () => console.log(`Server Running on port: ${PORT}`))) //find our port
