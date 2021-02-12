@@ -4,7 +4,11 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
         mainContainer: {
             flexDirection: "column-reverse",
+           
           },
+          heading: {
+            fontSize: 25
+          }
       },
   appBar: {
     borderRadius: 15,
