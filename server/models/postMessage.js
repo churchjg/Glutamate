@@ -1,6 +1,17 @@
 import express from 'express';
 
-import { getPosts, getPost, createPost, updatePost, likePost, deletePost } from '../controllers/posts.js';
+const postSchema = mongoose.Schema({
+    title: String,
+    message: String,
+    creator: String,
+    tags: [String],
+    selectedFile: String,
+    likes: { type: [String], default: [] },
+    createdAt: {
+        type: Date,
+        default: new Date(),
+    },
+})
 
 const router = express.Router();
 

@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true})); //properly send
 app.use(cors()); //can now call cors with a function
 
 app.use('/posts', postRoutes); //every route inside of the postRoutes will start with posts (localhost:5000/posts)
+app.use("/user", userRouter);
 
 
 app.get('/', (req, res) => {
