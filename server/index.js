@@ -34,6 +34,9 @@ if(process.env.NODE_ENV === "production"){
     mongoURI = "mongodb://localhost/5000"
 }
 
+// const PORT = process.env.PORT || 5000;
+// const CONNECTION_URL = 'mongodb+srv://churchjg:Rosslyn503$@cluster0.djqnm.mongodb.net/Glutamate?retryWrites=true&w=majority'
+
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true}) //function to accept connection and object parameters
     .then(() => app.listen(PORT, () => console.log(`Server Running on port: ${PORT}`))) //find our port
     .catch((error) => console.log(`${error} did not connect`));  //catch errors
