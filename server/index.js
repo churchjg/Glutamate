@@ -1,11 +1,11 @@
-import express from 'express'
+const express = require("express");
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors';
 import dotenv from 'dotenv';
 
 import postRoutes from './routes/posts.js'
-import userRouter from "./routes/user.js";
+
 
 const app = express(); //runs as a function and can now run all differnet methods on this app instance
 dotenv.config();
@@ -17,12 +17,15 @@ app.use(cors()); //can now call cors with a function
 app.use('/posts', postRoutes); //every route inside of the postRoutes will start with posts (localhost:5000/posts)
 
 
-
 app.get('/', (req, res) => {
     res.send('Hello to Memories')
 });
 
-const PORT = process.env.PORT || 5000;
+app.set("port", process.env.PORT || 5000);
+
+app.listen(app.get("port"), () => {
+    console.log(`Check Port: ${app.get('port')}`)
+})
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true}) //function to accept connection and object parameters
     .then(() => app.listen(PORT, () => console.log(`Server Running on port: ${PORT}`))) //find our port
