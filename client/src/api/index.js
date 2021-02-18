@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://glutamate.herokuapp.com/posts' });  
+const API = axios.create({ baseURL: 'https://churchjg-sentiments-backend.zeet.app/' });  
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
