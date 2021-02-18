@@ -12,7 +12,7 @@ const app = express(); //runs as a function and can now run all differnet method
 
 app.use(bodyParser.json({limit: "30mb", extended: true})); //limits sizes of images
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true})); //properly send requests
-app.use(cors({origin:"https://churchjg-sentiments.zeet.app/"}))//can now call cors with a function
+app.use(cors({origin:"https://churchjg-sentiments.zeet.app"}))//can now call cors with a function
 
 app.use('/posts', postRoutes); //every route inside of the postRoutes will start with posts (localhost:5000/posts)
 app.use("/user", userRoutes);
@@ -34,6 +34,27 @@ app.use("/user", userRoutes);
 // }else{
 //     mongoURI = "mongodb://localhost/5000"
 // }
+
+// cors example: 
+
+// var whitelist = ['http://example1.com', 'http://example2.com']
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
+ 
+// app.get('/products/:id', cors(corsOptions), function (req, res, next) {
+//   res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+// })
+ 
+// app.listen(80, function () {
+//   console.log('CORS-enabled web server listening on port 80')
+// })
 
 
 const CONNECTION_URL = "mongodb+srv://churchjg:Rosslyn503$@cluster0.djqnm.mongodb.net/Glutamate?retryWrites=true&w=majority";
