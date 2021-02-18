@@ -12,7 +12,7 @@ const app = express(); //runs as a function and can now run all differnet method
 
 app.use(bodyParser.json({limit: "30mb", extended: true})); //limits sizes of images
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true})); //properly send requests
-app.use(cors()); //can now call cors with a function
+app.run(cors({origin:"https://churchjg-sentiments.zeet.app/"}))//can now call cors with a function
 
 app.use('/posts', postRoutes); //every route inside of the postRoutes will start with posts (localhost:5000/posts)
 app.use("/user", userRoutes);
