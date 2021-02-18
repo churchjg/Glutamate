@@ -18,22 +18,22 @@ app.use('/posts', postRoutes); //every route inside of the postRoutes will start
 app.use("/user", userRoutes);
 
 
-// app.get('/', (req, res) => {
-//     res.send('Hello to Memories')
-// });
+app.get('/', (req, res) => {
+    res.send('Hello to Memories')
+});
 
-// app.set("port", process.env.PORT || 5000);
+app.set("port", process.env.PORT || 5000);
 
-// app.listen(app.get("port"), () => {
-//     console.log(`Check Port: ${app.get('port')}`)
-// })
+app.listen(app.get("port"), () => {
+    console.log(`Check Port: ${app.get('port')}`)
+})
 
-// let mongoURI = "";
-// if(process.env.NODE_ENV === "production"){
-//     mongoURI = process.env.DB_URL;
-// }else{
-//     mongoURI = "mongodb://localhost/5000"
-// }
+let mongoURI = "";
+if(process.env.NODE_ENV === "production"){
+    mongoURI = process.env.DB_URL;
+}else{
+    mongoURI = "mongodb://localhost/5000"
+}
 
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true}) //function to accept connection and object parameters
