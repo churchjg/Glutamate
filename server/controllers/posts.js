@@ -16,25 +16,25 @@ export const getPosts = async (req, res) => {
     }
 };
 
-export const getPost = async (req, res) => { 
-    const { id } = req.params;
+// export const getPost = async (req, res) => { 
+//     const { id } = req.params;
 
-    try {
-        const post = await PostMessage.findById(id);
+//     try {
+//         const post = await PostMessage.findById(id);
         
-        res.status(200).json(post);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
+//         res.status(200).json(post);
+//     } catch (error) {
+//         res.status(404).json({ message: error.message });
+//     }
+// }
 
 
 // 200, 201, 404, 409 are HTTP error codes
 
 export const createPost = async (req, res) => {
-    const { title, message, selectedFile, creator, tags } = req.body;
+    const post = req.body;
 
-    const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
+    const newPostMessage = new PostMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString() })
 
     try {
         await newPostMessage.save();
@@ -71,13 +71,25 @@ export const deletePost = async (req, res) => {
 export const likePost = async (req, res) => {
     const { id } = req.params;
 
+
+    //if you call a middleware before a specifc action, then you can populate the request and have access to that request before the following action
+    if (!req.userId) {
+        return res.json({ message: "User is not authenticated" });
+      }
+
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
     
     const post = await PostMessage.findById(id);
 
-    const updatedPost = await PostMessage.findByIdAndUpdate(id, { likeCount: post.likeCount + 1 }, { new: true });
-    
-    res.json(updatedPost);
+    const index = post.likes.findIndex((id) => id === String(req.userId));
+
+    if (index === -1) {
+      post.likes.push(req.userId);
+    } else {
+      post.likes = post.likes.filter((id) => id !== String(req.userId)); //loop through ids
+    }
+    const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true });
+    res.status(200).json(updatedPost);
 }
 
 

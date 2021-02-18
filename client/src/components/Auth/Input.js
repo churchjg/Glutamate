@@ -1,4 +1,4 @@
-
+//Allows us to not have to write repetitive code in the auth component. Instead we use the input component to do the work for us. Responsive design
 import React from 'react';
 import { TextField, Grid, InputAdornment, IconButton } from '@material-ui/core';
 
@@ -31,4 +31,4 @@ const Input = ({ name, handleChange, label, half, autoFocus, type, handleShowPas
 
 export default Input;
 
-export default input
+
