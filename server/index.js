@@ -36,7 +36,7 @@ app.use("/user", userRoutes);
 // }
 
 
-const CONNECTION_URL = "mongodb://churchjg:Twxl39jtct@churchjg-mongo-production/sentiment";
+const CONNECTION_URL = "mongodb://churchjg:Twxl39jtct@churchjg-mongo-production/admin";
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true}) //function to accept connection and object parameters
