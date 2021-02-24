@@ -134,7 +134,6 @@ const Auth = () => {
             color="primary"
             className={classes.submit}>
             {isSignup ? "Sign Up" : "Sign In"}
-            !posts.length ? <CircularProgress /> : (
           </Button>
 
           <GoogleLogin
