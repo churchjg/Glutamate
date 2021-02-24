@@ -3,7 +3,7 @@ import * as api from '../api/index.js';
 
 
 export const signin = (formData, history) => async (dispatch) => {
-  alert("Signing you in!")
+  
   try {
     const { data } = await api.signIn(formData);
 
@@ -18,7 +18,7 @@ export const signin = (formData, history) => async (dispatch) => {
 
 
 export const signup = (formData, history) => async (dispatch) => {
-  alert("Creating New Account")
+  
   try {
     const { data } = await api.signUp(formData);
 

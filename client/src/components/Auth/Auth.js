@@ -48,11 +48,12 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
-
     if (isSignup) {
+      //put in loading button?
+      alert("Creating You A New Account!")
       dispatch(signup(formData, history));
     } else {
+      alert("Welcome Back!")
       dispatch(signin(formData, history));
     }
   };
