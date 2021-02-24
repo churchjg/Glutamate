@@ -20,7 +20,6 @@ const Home = () => {
     }, [currentId, dispatch]);
 
     return (
-      
         <Grow in>
         <Container>
           <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
@@ -29,7 +28,6 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <Form currentId={currentId} setCurrentId={setCurrentId} />
-              <Loader type="Oval" color="#00BFFF" height={80} width={80} />
             </Grid>
           </Grid>
         </Container>
