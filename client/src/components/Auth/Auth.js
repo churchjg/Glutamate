@@ -53,7 +53,7 @@ const Auth = () => {
       alert("Creating You A New Account!")
       dispatch(signup(formData, history));
     } else {
-      alert("Welcome Back!")
+      alert("Welcome Back! Signing you in now.")
       dispatch(signin(formData, history));
     }
   };
