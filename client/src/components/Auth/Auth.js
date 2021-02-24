@@ -10,6 +10,7 @@ import {
   Grid,
   Typography,
   Container,
+  CircularProgress,
 } from "@material-ui/core";
 
 import { GoogleLogin } from "react-google-login";
@@ -76,7 +77,6 @@ const Auth = () => {
 
   
 
-  
 
   return (
     <Container component="main" maxWidth="xs">
