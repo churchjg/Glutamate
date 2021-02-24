@@ -5,14 +5,14 @@ import Form from '../Form/Form'
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../../actions/posts';
 import useStyles from "./styles";
-import Loader from "react-loader-spinner";
+
 
 const Home = () => {
 
     const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch();
     const classes = useStyles();
-    const posts = useSelector((state) => state.posts);
+   
   
   
     useEffect(() => {
@@ -20,7 +20,7 @@ const Home = () => {
     }, [currentId, dispatch]);
 
     return (
-      !posts.length ? <CircularProgress /> : (
+      
         <Grow in>
         <Container>
           <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
@@ -35,7 +35,7 @@ const Home = () => {
         </Container>
       </Grow>
       )
-    )
+    
 }
 
 export default Home
