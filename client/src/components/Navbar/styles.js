@@ -29,7 +29,7 @@ export default makeStyles((theme) => ({
   },
   toolbar: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     width: "400px",
   },
   profile: {
