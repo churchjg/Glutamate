@@ -27,4 +27,11 @@ export default makeStyles((theme) => ({
   googleButton: {
     marginBottom: theme.spacing(2),
   },
+  fabProgress: {
+    color: "blue",
+    position: "absolute",
+    top: -6,
+    left: -6,
+    zIndex: 1
+  }
 }));

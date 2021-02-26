@@ -1,6 +1,6 @@
 //use input component to ease amount of code, use isSignUp variable and changes to determine is signing in or signing up
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -11,15 +11,19 @@ import {
   Typography,
   Container,
   CircularProgress,
+  Fab
 } from "@material-ui/core";
 
 import { GoogleLogin } from "react-google-login";
 import Icon from "./icon";
 import useStyles from "./styles";
 import LockOutLinedIcon from "@material-ui/icons/LockOutlined";
+import CheckIcon from "@material-ui/icons/Check";
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Input from "./Input";
 import { signin, signup } from '../../actions/auth';
 import { AUTH } from '../../constants/actionTypes';
+import clsx from "clsx";
 
 
 /////End Imports
@@ -33,10 +37,32 @@ const Auth = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
-
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const timer = React.useRef();
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
 
+  const buttonClassname = clsx({
+    [classes.buttonSuccess]: success
+  });
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, []);
+
+  const handleButtonClick = () => {
+    if (!loading) {
+      setSuccess(false);
+      setLoading(true);
+      timer.current = setTimeout(() => {
+        setSuccess(true);
+        setLoading(false);
+      }, 1000);
+    }
+  };
 
   //switchMode allows us to see our password in the form with the little 'eye' icon
   const switchMode = () => {
@@ -131,11 +157,18 @@ const Auth = () => {
           <Button
             type="submit"
             fullWidth
+            
             variant="contained"
             color="primary"
-            className={classes.submit}>
+            className={classes.submit}
+            onClick={handleButtonClick}
+            >
+            {success ? <CheckIcon /> : <ArrowForwardIcon />}
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
+          {loading && (
+          <CircularProgress size={68} className={classes.fabProgress} />
+        )}
 
           <GoogleLogin
             clientId="608274914408-p53dncp0v85or6uf54h9o332hno5q271.apps.googleusercontent.com"
