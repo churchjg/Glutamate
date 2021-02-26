@@ -40,7 +40,7 @@ export default makeStyles((theme) => ({
     position: "relative"
   },
   switch: {
-    border: ".5px solid grey",  '&:hover': {
+    border: ".2px solid grey",  '&:hover': {
       border: "3px solid white",
       borderRadius: 5,
       color: "green",
