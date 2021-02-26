@@ -76,10 +76,10 @@ const Auth = () => {
 
     if (isSignup) {
       //put in loading button?
-      alert("Creating You A New Account!")
+      // alert("Creating You A New Account!")
       dispatch(signup(formData, history));
     } else {
-      alert("Welcome Back! Signing you in now.")
+      // alert("Welcome Back! Signing you in now.")
       dispatch(signin(formData, history));
     }
   };
