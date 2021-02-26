@@ -154,13 +154,14 @@ const Auth = () => {
               />
             )}
           </Grid>
+          <div className={classes.wrapper}>
           <Button
             type="submit"
             fullWidth
             
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={buttonClassname}
             onClick={handleButtonClick}
             >
             {success ? <CheckIcon /> : <ArrowForwardIcon />}
@@ -169,6 +170,7 @@ const Auth = () => {
           {loading && (
           <CircularProgress size={68} className={classes.fabProgress} />
         )}
+        </div>
 
           <GoogleLogin
             clientId="608274914408-p53dncp0v85or6uf54h9o332hno5q271.apps.googleusercontent.com"
