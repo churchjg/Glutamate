@@ -41,6 +41,11 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
+  logout: {
+    display: "flex",
+    alignItems: "center",
+  },
+  
   brandContainer: {
     display: "flex",
     alignItems: "center",
