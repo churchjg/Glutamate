@@ -29,10 +29,10 @@ export default makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   fabProgress: {
-    color: "blue",
+    color: "white",
     position: "absolute",
-    top: -6,
-    left: -6,
+    top: 2,
+    left: 50,
     zIndex: 1
   },
   wrapper: {

@@ -164,12 +164,12 @@ const Auth = () => {
             className={buttonClassname}
             onClick={handleButtonClick}
             >
-            {success ? <CheckIcon /> : <ArrowForwardIcon />}
+            {success ? <CircularProgress size={30} className={classes.fabProgress} /> : <ArrowForwardIcon />}
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
-          {loading && (
+          {/* {loading && (
           <CircularProgress size={68} className={classes.fabProgress} />
-        )}
+        )} */}
         </div>
 
           <GoogleLogin
