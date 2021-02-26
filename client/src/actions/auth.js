@@ -11,7 +11,7 @@ export const signin = (formData, history) => async (dispatch) => {
 
     history.push('/');
   } catch (error) {
-    alert(error);
+    alert("Sorry, try again. Please double check your password.");
   }
 };
 
@@ -27,6 +27,6 @@ export const signup = (formData, history) => async (dispatch) => {
     history.push('/');
     
   } catch (error) {
-    alert(error);
+    alert("Sorry! Either your passwords do not match or you are already in our system.");
   }
 };

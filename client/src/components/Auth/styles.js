@@ -39,4 +39,14 @@ export default makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     position: "relative"
   },
+  switch: {
+    border: ".5px solid grey",  '&:hover': {
+      border: "3px solid white",
+      borderRadius: 5,
+      color: "green",
+      fontSize: "15px",
+      fontWeight: 'bold'
+    },
+    
+  }
 }));
