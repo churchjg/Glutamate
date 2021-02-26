@@ -32,6 +32,12 @@ export default makeStyles({
     top: '20px',
     right: '20px',
     color: 'white',
+    '@media(min-width: 760px)' : {
+      position: 'absolute',
+    top: '20px',
+    right: '10px',
+    color: 'white',
+    }
   },
   grid: {
     display: 'flex',
