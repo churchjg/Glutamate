@@ -13,4 +13,4 @@ CRUD Application that allows users to ‘save’ memories that have sentimental 
 
 
 ## Deployed Site
-<https://sentiment-app.netlify.app/ >
+https://sentiment-app.netlify.app/ 
